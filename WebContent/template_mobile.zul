@@ -1,0 +1,56 @@
+<?page title="Gestión Seguros"?>
+
+<?link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link rel="icon" type="image/x-icon" href="images/logo.ico"?>
+
+<!-- Google Open Sans font -->
+<!-- Load fonts from local -->
+<?link href="css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'?>
+<?link href="less/index.css.dsp" rel="stylesheet" type="text/css"?>
+
+<window mode="modal" height="100%" width="99.5%">
+	<div vflex="1" style="overflow:scroll">
+	<div sclass="navbar">
+		<!-- Brand Logo -->
+		<label value="Gestión de Seguros" sclass="pull-left navbar-brand" style="font-size:11pt"/>
+		
+		<div sclass="nav-search" hflex="true">
+			<bandbox placeholder="Registros 1, Registros 2, Registros 3,  ..." sclass="input-prepend" hflex="true"/>
+		</div>
+	</div>
+	<hlayout id="main" spacing="0">
+		<vlayout spacing="0" hflex="1">
+			<div sclass="breadcrumbs">
+				<div sclass="breadcrumb">
+					<span sclass="home-icon z-icon-home" />
+					<a label="Inicio" href="#" style="color: #60BFD0"/>
+					<label value="Tablero" />
+				</div>
+			</div>
+
+			<vlayout sclass="page-content" xmlns:n="native"
+				spacing="0">
+				<div sclass="page-header">
+					<label value="Tablero" style="color:#60BFD0"/>
+					<a label="resumen &amp; estadísticas"
+						iconSclass="z-icon-angle-double-right" sclass="subtitle" />
+				</div>
+				<window closable="true" border="normal"
+					sclass="alert alert-success">
+					<caption iconSclass="z-icon-check">
+						Bienvenido a Gestión de Seguros..
+					</caption>
+				</window>
+			</vlayout>
+		</vlayout>
+	</hlayout>
+	</div>
+	<style>
+		.z-page {background:white}
+		.nav > li > a:hover, .nav > li > a:focus { color: #60BFD0; font-weight: bold}
+		.navbar-nav > li > a { color: gray }
+		.nav-search .z-bandbox-button [class*="z-icon-"] { color: #60BFD0 }
+		.alert-success { color:white; background: #60BFD0 }
+	</style>
+</window>

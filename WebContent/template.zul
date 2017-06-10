@@ -1,0 +1,355 @@
+<?page title="Gestión Seguros"?>
+
+<?link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link rel="icon" type="image/x-icon" href="images/logo.ico"?>
+
+<!-- Google Open Sans font -->
+<!-- Load fonts from local -->
+<?link href="css/fonts.css" rel="stylesheet" type="text/css"?>
+<?link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'?>
+<?link href="less/index.css.dsp" rel="stylesheet" type="text/css"?>
+
+<window mode="modal" height="100%" width="99.5%"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.seguros.template.TemplateViewModel')">
+	<div sclass="navbar">
+		<!-- Brand Logo -->
+		<label value="Gestión de Seguros"
+			sclass="pull-left navbar-brand" />
+
+		<div sclass="nav-search" hflex="true">
+			<bandbox
+				placeholder="Registros 1, Registros 2, Registros 3,  ..."
+				sclass="input-prepend" hflex="true" />
+		</div>
+	</div>
+	<hlayout id="main" spacing="0" vflex="true">
+		<div id="sidebar" sclass="sidebar" vflex="true"
+			style="border:0">
+			<!-- Navigation List -->
+			<navbar id="navbar" sclass="nav-list" orient="vertical"
+				style="background:#EBEBEB;border:0" vflex="true">
+				<navitem label=" Tablero" iconSclass="z-icon-home"
+					onClick="@command('selectModulo', modulo='Tablero')" />
+				<navitem label=" Administrativo" iconSclass="z-icon-cog"
+					onClick="@command('selectModulo', modulo='Administrativo')" />
+				<navitem id="nv_monedas" label=" > Monedas"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom" onClick="@command('selectForm', form='Monedas')" />
+				<navitem id="nv_contacto" label=" > Tipos de Contacto"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Tipos de Contacto')" />
+				<navitem id="nv_intermediacion"
+					label=" > Modos Intermediación"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Modos Intermediación')" />
+				<navitem id="nv_rubros" label=" > Rubros"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom" onClick="@command('selectForm', form='Rubros')" />
+				<navitem id="nv_siniestro"
+					label=" > Tipos de Siniestros"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Tipos de Siniestros')" />
+				<navitem id="nv_personas" label=" > Personas"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom" onClick="@command('selectForm', form='Personas')" />
+				<navitem id="nv_agencia" label=" > Agencias"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom" onClick="@command('selectForm', form='Agencias')" />
+				<navitem id="nv_companhia"
+					label=" > Compañías de Seguro"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Compañías de Seguro')" />
+				<navitem id="nv_clientes" label=" > Clientes"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom" onClick="@command('selectForm', form='Clientes')" />
+				<navitem id="nv_gpclientes"
+					label=" > Grupos de Clientes"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Grupos de Clientes')" />
+				<navitem id="nv_actividad" label=" > Tipo de Actividad"
+					visible="@load(vm.selectedModulo eq 'Administrativo')"
+					sclass="custom"
+					onClick="@command('selectForm', form='Tipos de Actividad')" />
+
+				<navitem label=" Gestiones" iconSclass="z-icon-calendar"
+					onClick="@command('selectModulo', modulo='Gestiones')" />
+				<navitem label=" Reportes"
+					iconSclass="z-icon-bar-chart-o"
+					onClick="@command('selectModulo', modulo='Reportes')" />
+			</navbar>
+		</div>
+
+		<vlayout spacing="0" hflex="1" vflex="1">
+			<div sclass="breadcrumbs">
+				<div sclass="breadcrumb">
+					<span sclass="home-icon z-icon-home" />
+					<a label="Inicio" href="#" style="color: #60BFD0" />
+					<label value="@load(vm.selectedModulo)" />
+				</div>
+			</div>
+
+			<vlayout sclass="page-content" xmlns:n="native" spacing="0"
+				vflex="true" hflex="1">
+				<div sclass="page-header">
+					<label value="@load(vm.selectedModulo)"
+						style="color:#60BFD0" />
+					<a label="@load(vm.selectedForm)"
+						iconSclass="z-icon-angle-double-right" sclass="subtitle" />
+				</div>
+
+				<vlayout visible="@load(vm.selectedModulo ne 'Tablero' and vm.selectedForm ne '')"
+					vflex="true" hflex="true">
+					
+					<hbox hflex="1">
+						<space hflex="1"></space>
+						<button 
+							style="background:#60BFD0;color:white">Agregar</button>
+						<button 
+							style="background:#60BFD0;color:white">Modificar</button>
+						<button
+							style="background:#60BFD0;color:white">Eliminar</button>
+						<button 
+							style="background:#60BFD0;color:white">Guardar</button>
+					</hbox>
+					<space></space>
+					<hbox vflex="true" hflex="true">
+						<grid sclass="vgrid" hflex="true">
+							<rows>
+								<row>
+									<label>Campo 1:</label>
+									<textbox placeholder="Campo 1.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 2:</label>
+									<textbox placeholder="Campo 2.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 3:</label>
+									<textbox placeholder="Campo 3.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 4:</label>
+									<textbox placeholder="Campo 4.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 5:</label>
+									<textbox placeholder="Campo 5.." hflex="true"></textbox>
+								</row>
+							</rows>
+						</grid>
+						<space width="100px"></space>
+						<grid sclass="vgrid" hflex="true">
+							<rows>
+								<row>
+									<label>Campo 6:</label>
+									<textbox placeholder="Campo 6.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 7:</label>
+									<textbox placeholder="Campo 7.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 8:</label>
+									<textbox placeholder="Campo 8.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 9:</label>
+									<textbox placeholder="Campo 9.." hflex="true"></textbox>
+								</row>
+								<row>
+									<label>Campo 10:</label>
+									<textbox placeholder="Campo 10.." hflex="true"></textbox>
+								</row>
+							</rows>
+						</grid>
+					</hbox>					
+				</vlayout>
+
+				<div visible="@load(vm.selectedModulo eq 'Tablero')">
+					<window closable="true" border="normal"
+						sclass="alert alert-success">
+						<caption iconSclass="z-icon-check">
+							Bienvenido al Panel Web de la app de Gestión
+							de Seguros..
+						</caption>
+					</window>
+
+
+					<separator height="12px" />
+					<hlayout spacing="24px">
+						<vlayout sclass="infobox-container"
+							xmlns:n="native">
+							<hlayout spacing="0"
+								style="padding-top:1px">
+								<div sclass="infobox infobox-green">
+									<span sclass="infobox-icon">
+										<span zclass="z-icon-comments" />
+									</span>
+									<div sclass="infobox-data">
+										<label value="32"
+											sclass="infobox-data-number" />
+										<div sclass="infobox-content">
+											comentarios + 2 críticas
+										</div>
+									</div>
+									<div sclass="stat stat-success">
+										8%
+									</div>
+								</div>
+
+								<div sclass="infobox infobox-blue  ">
+									<span sclass="infobox-icon">
+										<span zclass="z-icon-twitter" />
+									</span>
+									<div sclass="infobox-data">
+										<label value="11"
+											sclass="infobox-data-number" />
+										<div sclass="infobox-content">
+											nuevos seguidores
+										</div>
+									</div>
+									<a sclass="badge badge-success"
+										label="+32%" iconSclass="z-icon-arrow-up" />
+								</div>
+
+								<div class="infobox infobox-orange">
+									<div class="infobox-chart">
+										<n:span class="sparkline"
+											data-values="196,128,202,177,154,94,100,170,224">
+										</n:span>
+									</div>
+									<div class="infobox-data">
+										<label value="6,251"
+											sclass="infobox-data-number" />
+										<div class="infobox-content">
+											visitas
+										</div>
+									</div>
+									<a sclass="badge badge-success"
+										label="7.2%" iconSclass="z-icon-arrow-up" />
+								</div>
+
+								<div class="infobox infobox-blue2">
+									<div class="infobox-progress">
+										<n:div
+											class="easy-pie-chart percentage" data-percent="42"
+											data-size="46"
+											style="width:46px;height:46px;line-height:46px;">
+											<n:span class="percent">
+												42
+											</n:span>
+											%
+										</n:div>
+									</div>
+									<div class="infobox-data">
+										<label value="trafico de datos"
+											sclass="infobox-text" />
+										<div class="infobox-content">
+											<span class="bigger-110">
+												~
+											</span>
+											58GB disponible
+										</div>
+									</div>
+								</div>
+							</hlayout>
+							<hlayout>
+								<div
+									class="infobox infobox-green infobox-small infobox-dark">
+									<div class="infobox-progress">
+										<n:div
+											class="easy-pie-chart percentage" data-percent="61"
+											data-size="39"
+											style="width:39px;height:39px;line-height:39px;">
+											<n:span class="percent">
+												61
+											</n:span>
+											%
+										</n:div>
+									</div>
+									<div class="infobox-data">
+										<div class="infobox-content">
+											Tareas
+										</div>
+										<div class="infobox-content">
+											Completadas
+										</div>
+									</div>
+								</div>
+
+								<div
+									class="infobox infobox-blue infobox-small infobox-dark">
+									<div class="infobox-chart">
+										<n:span class="sparkline"
+											data-values="3,4,2,3,4,4,2,2">
+										</n:span>
+									</div>
+									<div class="infobox-data">
+										<div class="infobox-content">
+											Seguidores
+										</div>
+										<div class="infobox-content">
+											32,000
+										</div>
+									</div>
+								</div>
+
+								<div
+									class="infobox infobox-grey infobox-small infobox-dark">
+									<span sclass="infobox-icon">
+										<span zclass="z-icon-download" />
+									</span>
+									<div class="infobox-data">
+										<div class="infobox-content">
+											Descargas
+										</div>
+										<div class="infobox-content">
+											1,205
+										</div>
+									</div>
+								</div>
+							</hlayout>
+						</vlayout>
+					</hlayout>
+				</div>
+
+			</vlayout>
+		</vlayout>
+	</hlayout>
+	<style>
+		.z-page {background:white} .nav > li > a:hover, .nav > li >
+		a:focus { color: #60BFD0; font-weight: bold} .navbar-nav > li >
+		a { color: gray } .nav > li > a { padding: 10px 1px;
+		line-height: 15px } .nav-search .z-bandbox-button
+		[class*="z-icon-"] { color: #60BFD0 } .alert-success {
+		color:white; background: #60BFD0 } .custom {font-size: 11px}
+		.vgrid tr.z-row td.z-row-inner, tr.z-row, div.z-grid-body
+		div.z-cell, div.z-grid { border: none; overflow: hidden; zoom:
+		1; background-color: transparent; border-top: none; border-left:
+		none; border-right: none; border-bottom: none; }
+
+		.vgrid .z-grid-odd .vgrid .z-row-inner, .vgrid .z-grid-odd
+		.z-cell { background-color: transparent; border-bottom: 1px
+		solid transparent; border-left: 1px solid transparent;
+		border-top: 1px solid transparent; }
+
+		.vgrid .z-grid-odd .vgrid.z-row-inner, .vgrid.z-grid-odd
+		.z-cell, .vgrid.z-grid-odd { background: none repeat scroll 0 0
+		transparent; }
+
+		.vgrid tr.z-row td.z-row-inner, .vgrid tr.z-row .z-cell {
+		line-height: 15px; }
+
+		.vgrid tr.z-grid-odd td.z-row-inner, .vgrid tr.z-grid-odd
+		.z-cell, .vgrid tr.z-grid-odd { background-color: transparent; }
+
+		.vgrid tr.z-row td.z-row-inner, .vgrid tr.z-row .z-cell {
+		background-color: transparent; border-top: none; }
+	</style>
+</window>
