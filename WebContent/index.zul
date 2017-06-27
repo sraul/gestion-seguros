@@ -12,7 +12,7 @@
 	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.seguros.login.LoginViewModel')">
 
 	<vbox vflex="true" width="100%" pack="center" align="center"
-		sclass="app" style="@load(vm.mobile ? 'padding: 20px' : 'padding: 20% 35% 20% 35%')">
+		sclass="app" style="padding: 20% 35% 20% 35%">
 		<vlayout hflex="true"
 			style="border: solid 3px #60BFD0;padding:40px 40px 40px 40px; border-radius: 10px">
 			<div style="border-bottom:solid 1px #60BFD0">
@@ -30,7 +30,7 @@
 			<div height="5px"></div>
 			<button label="Ingresar"
 				style="background:#60BFD0;color:white" hflex="true"
-				href="@load(vm.mobile? 'template_mobile.zul' : 'template.zul')" />
+				href="template.zul" />
 		</vlayout>
 	</vbox>
 
