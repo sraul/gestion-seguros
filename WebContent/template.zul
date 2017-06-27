@@ -31,8 +31,10 @@
 				style="background:#EBEBEB;border:0" vflex="true">
 				<navitem label=" Tablero" iconSclass="z-icon-home"
 					onClick="@command('selectModulo', modulo='Tablero')" />
+				
 				<navitem label=" Administrativo" iconSclass="z-icon-cog"
 					onClick="@command('selectModulo', modulo='Administrativo')" />
+					
 				<navitem id="nv_monedas" label=" > Monedas"
 					visible="@load(vm.selectedModulo eq 'Administrativo')"
 					sclass="custom" onClick="@command('selectForm', form='Monedas')" />
@@ -79,6 +81,26 @@
 
 				<navitem label=" Gestiones" iconSclass="z-icon-calendar"
 					onClick="@command('selectModulo', modulo='Gestiones')" />
+				
+				<navitem id="nv_agenda" label=" > Agenda"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Agenda')" />					
+				<navitem id="nv_polizas" label=" > Pólizas"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Pólizas')" />
+				<navitem id="nv_renovaciones" label=" > Renovaciones"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Renovaciones')" />
+				<navitem id="nv_comisiones" label=" > Comisiones y Cobros"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Comisiones')" />	
+				<navitem id="nv_siniestros" label=" > Siniestros"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Siniestros')" />
+				<navitem id="nv_migraciones" label=" > Migraciones"
+					visible="@load(vm.selectedModulo eq 'Gestiones')"
+					sclass="custom" onClick="@command('selectForm', form='Migraciones')" />
+					
 				<navitem label=" Reportes"
 					iconSclass="z-icon-bar-chart-o"
 					onClick="@command('selectModulo', modulo='Reportes')" />
@@ -333,6 +355,7 @@
 		div.z-cell, div.z-grid { border: none; overflow: hidden; zoom:
 		1; background-color: transparent; border-top: none; border-left:
 		none; border-right: none; border-bottom: none; }
+		.navbar {padding: 0 10px} .nav > li > a { width: 150px }
 
 		.vgrid .z-grid-odd .vgrid .z-row-inner, .vgrid .z-grid-odd
 		.z-cell { background-color: transparent; border-bottom: 1px

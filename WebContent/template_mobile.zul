@@ -26,6 +26,7 @@
 					<span sclass="home-icon z-icon-home" />
 					<a label="Inicio" href="#" style="color: #60BFD0"/>
 					<label value="Tablero" />
+					<button iconSclass="z-icon-navicon"></button>
 				</div>
 			</div>
 
