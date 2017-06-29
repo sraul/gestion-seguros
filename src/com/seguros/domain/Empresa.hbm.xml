@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//hibernate/hibernate Mapping DTD 3.0//EN"
+        "classpath://org/hibernate/hibernate-mapping-3.0.dtd"
+        [ <!ENTITY hibernate-domain SYSTEM "classpath://com/coreweb/hibernate-domain.hbm.xml"> ]>
+
+<hibernate-mapping>
+
+	<class name="com.seguros.domain.Empresa" table="empresa">
+
+		&hibernate-domain; 
+		
+		<property name="nom_empresa"/>
+		<property name="tit_reportes"/>
+		<property name="logo"/>
+		<property name="logo_reporte"/>
+		<property name="activo"/>
+				
+	</class>
+</hibernate-mapping>

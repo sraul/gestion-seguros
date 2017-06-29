@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "classpath://org/hibernate/hibernate-configuration-3.0.dtd"
+        [ <!ENTITY hibernate-core SYSTEM "classpath://com/coreweb/hibernate-core.cfg.xml"> ]>
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Postgres -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/segurosdb</property>
+
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">postgres</property>
+
+		<!-- Fin Postgres -->
+
+		<!-- ===== Hibernate Core ====================== -->
+		
+		&hibernate-core;
+
+		<!-- ===== Hibernate propio del dominio ======= -->
+
+		<mapping resource="com/seguros/domain/Barrio.hbm.xml" />
+		<mapping resource="com/seguros/domain/Ciudad.hbm.xml" />
+		<mapping resource="com/seguros/domain/Departamento.hbm.xml" />
+		<mapping resource="com/seguros/domain/Direccion.hbm.xml" />
+		<mapping resource="com/seguros/domain/Documento.hbm.xml" />
+		<mapping resource="com/seguros/domain/Empresa.hbm.xml" />
+		<mapping resource="com/seguros/domain/Pais.hbm.xml" />
+		<mapping resource="com/seguros/domain/Persona.hbm.xml" />
+		<mapping resource="com/seguros/domain/Profesion.hbm.xml" />
+		<mapping resource="com/seguros/domain/Sucursal.hbm.xml" />
+		<mapping resource="com/seguros/domain/Telefono.hbm.xml" />
+		<mapping resource="com/seguros/domain/Contacto.hbm.xml" />
+		<mapping resource="com/seguros/domain/Cotizacion.hbm.xml" />
+		<mapping resource="com/seguros/domain/Moneda.hbm.xml" />
+		<mapping resource="com/seguros/domain/TipoSiniestro.hbm.xml" />
+		<mapping resource="com/seguros/domain/Ramo.hbm.xml" />
+		<mapping resource="com/seguros/domain/TipoIntermediacion.hbm.xml" />
+		<mapping resource="com/seguros/domain/Aseguradora.hbm.xml" />
+		<mapping resource="com/seguros/domain/Agente.hbm.xml" />
+
+		<!-- ********************************************* -->
+
+	</session-factory>
+
+</hibernate-configuration>

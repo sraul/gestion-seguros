@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//hibernate/hibernate Mapping DTD 3.0//EN"
+        "classpath://org/hibernate/hibernate-mapping-3.0.dtd"
+        [ <!ENTITY hibernate-domain SYSTEM "classpath://com/coreweb/hibernate-domain.hbm.xml"> ]>
+
+<hibernate-mapping>
+
+	<class name="com.seguros.domain.Persona" table="persona">
+
+		&hibernate-domain; 
+		
+		<property name="ind_fisica"/>
+		<property name="nombres"/>
+		<property name="apellidos"/>
+		<property name="nom_fantasia"/>
+		<property name="fec_nacimiento"/>
+		<property name="web"/>
+		<property name="mail"/>
+				
+	</class>
+</hibernate-mapping>
